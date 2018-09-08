@@ -50,4 +50,16 @@ public class BinarySearchTree {
             }
         }
     }
+
+    public boolean find(int number) {
+
+        Node tempRoot = this.root;
+
+        while (tempRoot != null) {
+            if(tempRoot.getData() == number) return true;
+            else if (tempRoot.getData() < number) tempRoot = tempRoot.getRight();
+            else tempRoot = tempRoot.getLeft();
+        }
+        return false;
+    }
 }
