@@ -62,4 +62,30 @@ public class BinarySearchTree {
         }
         return false;
     }
+
+    public void remove(int number) {
+        if (this.root.getData() == number) {
+            this.root = null;
+            return;
+        }
+
+        Node current = root;
+        Node parent = root;
+
+        while (current != null) {
+            if (number == current.getData()) {
+                parent.removeChild(current);
+                return;
+            }
+            else if (number < current.getData()) {
+                parent = current;
+                current = current.getLeft();
+            }
+            else {
+                parent = current;
+                current = current.getRight();
+            }
+        }
+        throw new IllegalArgumentException("Number is not in the tree");
+    }
 }
