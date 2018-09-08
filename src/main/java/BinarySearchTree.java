@@ -27,4 +27,27 @@ public class BinarySearchTree {
             }
         }
     }
+
+    public void add(int number) {
+
+        Node tempRoot = this.root;
+
+        while (true) {
+            if (tempRoot.getData() == number) throw new IllegalArgumentException("Number is already in the tree");
+            else if (tempRoot.getData() < number) {
+                if(tempRoot.getRight() != null) tempRoot = tempRoot.getRight();
+                else {
+                    tempRoot.setRight(new Node(number));
+                    return;
+                }
+            }
+            else {
+                if(tempRoot.getLeft() != null) tempRoot = tempRoot.getLeft();
+                else {
+                    tempRoot.setLeft(new Node(number));
+                    return;
+                }
+            }
+        }
+    }
 }
