@@ -33,4 +33,16 @@ public class Node {
     public void setRight(Node right) {
         this.right = right;
     }
+
+    public void removeChild(Node child) {
+        if (this.left == child) {
+            this.left = null;
+        }
+        else if (this.right == child) {
+            this.right = null;
+        }
+        else {
+            throw new IllegalArgumentException("Cannot remove non existing child");
+        }
+    }
 }
